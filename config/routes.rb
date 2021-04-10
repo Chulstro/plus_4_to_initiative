@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get '/', to: 'characters#index'
 
   get '/races', to: 'races#index'
+
+  get '/classes', to: 'classes#index'
 end
