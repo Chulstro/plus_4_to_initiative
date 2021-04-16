@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/races', to: 'races#index'
 
   get '/classes', to: 'classes#index'
+  get '/classes/:id/subclasses', to: 'subclasses#index'
 end

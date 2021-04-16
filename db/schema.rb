@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_033851) do
+ActiveRecord::Schema.define(version: 2021_04_12_180502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_04_10_033851) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "subclasses", force: :cascade do |t|
+    t.bigint "classs_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classs_id"], name: "index_subclasses_on_classs_id"
+  end
+
   add_foreign_key "character_races", "characters"
   add_foreign_key "character_races", "races"
+  add_foreign_key "subclasses", "classses"
 end
