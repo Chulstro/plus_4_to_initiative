@@ -3,3 +3,5 @@
 <% @characters.each do |character| %>
   <%= character.name %>
 <% end %>
+
+<%= button_to "New Character",'/new', method: :get %>
