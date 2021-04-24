@@ -1,0 +1,9 @@
+<h1>Choose a Subclass for your Character</h1>
+
+<%= form_tag '/character_subclasses', method: :post do %>
+
+  <%= select_tag :subclass, options_from_collection_for_select(@character.classses.first.subclasses, "id", "name"), include_blank: "--subclass--" %>
+
+  <%= hidden_field_tag :character_id, @character.id %>
+  <%= submit_tag 'Create Character' %>
+<% end %>
