@@ -7,5 +7,5 @@
   <%= select_tag :class, options_from_collection_for_select(@new_character_info["classes"], "id", "name"), include_blank: "--class--" %>
   <%= select_tag :race, options_from_collection_for_select(@new_character_info["races"], "id", "name"), include_blank: "--race--" %>
 
-  <%= submit_tag 'Create Character' %>
+  <%= submit_tag 'Next Step' %>
 <% end %>

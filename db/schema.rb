@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_003814) do
+ActiveRecord::Schema.define(version: 2021_04_24_184314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2021_04_19_003814) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_races_on_character_id"
     t.index ["race_id"], name: "index_character_races_on_race_id"
+  end
+
+  create_table "character_subclasses", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "subclass_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_subclasses_on_character_id"
+    t.index ["subclass_id"], name: "index_character_subclasses_on_subclass_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -64,5 +73,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_003814) do
   add_foreign_key "character_classses", "classses"
   add_foreign_key "character_races", "characters"
   add_foreign_key "character_races", "races"
+  add_foreign_key "character_subclasses", "characters"
+  add_foreign_key "character_subclasses", "subclasses"
   add_foreign_key "subclasses", "classses"
 end

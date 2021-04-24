@@ -8,8 +8,8 @@ class CharactersController < ApplicationController
   end
 
   def create
-    CharacterFacade.create_new(params["name"], params["lvl"], params["race"], params["class"])
+    info = CharacterFacade.create_new(params["name"], params["lvl"], params["race"], params["class"])
 
-    redirect_to "/"
+    redirect_to "/character_subclasses/new?character_id=#{info.character_id}"
   end
 end

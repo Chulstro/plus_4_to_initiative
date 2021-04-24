@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   get '/new', to: 'characters#new'
   post '/characters', to: 'characters#create'
 
+  get '/character_subclasses/new', to: 'character_subclasses#new'
+  post '/character_subclasses', to: 'character_subclasses#create'
+
   get '/races', to: 'races#index'
 
   get '/classes', to: 'classes#index'
   get '/classes/:id/subclasses', to: 'subclasses#index'
+
 end
